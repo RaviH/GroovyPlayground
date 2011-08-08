@@ -1,4 +1,4 @@
-package com.mayabansi.file;
+package com.mayabansi.fileexamples;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

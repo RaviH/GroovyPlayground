@@ -1,4 +1,4 @@
-@Typed package com.mayabansi.file
+@Typed package com.mayabansi.fileexamples
 /**
  * Created by IntelliJ IDEA.
  * User: Ravi Hasija
