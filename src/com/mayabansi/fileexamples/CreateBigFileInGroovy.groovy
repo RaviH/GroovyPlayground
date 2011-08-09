@@ -1,4 +1,5 @@
-@Typed package com.mayabansi.fileexamples
+@Typed
+package com.mayabansi.fileexamples
 /**
  * Created by IntelliJ IDEA.
  * User: Ravi Hasija
@@ -9,25 +10,22 @@
 
 final File outputFile = new File(/D:\code\IProjects\GroovyPlayground\BigFileInGroovy.txt/)
 
-Random rand = new Random()
-int accountNumber = 1
-int customerNumber = 1001101
-int totalMin = 1000
-float price = 69.99f
+final Random rand = new Random()
+final int totalMin = 1000
+final float price = 69.99f
 
-long startTime = System.currentTimeMillis()
-for (i in 1..200000) {
-    accountNumber = rand.nextInt(1001011)
-    customerNumber = rand.nextInt(2002110)
-    int totalMinsUsed = rand.nextInt(1000)
-    int totalMinsAvail = totalMin - totalMinsUsed
+final long startTime = System.currentTimeMillis()
+outputFile.withWriter('UTF-8') { writer ->
+    for (final int i in 1..200000) {
+        def accountNumber = rand.nextInt(1001011)
+        def customerNumber = rand.nextInt(2002110)
+        int totalMinsUsed = rand.nextInt(1000)
+        int totalMinsAvail = totalMin - totalMinsUsed
 
-    String line = "${accountNumber}, ${customerNumber}, ${totalMin}, ${totalMinsUsed++}, ${totalMinsAvail}, ${price}, John Smith\n"
-    if (i == 1) {
-        outputFile.write(line)
-    } else {
-        outputFile.append(line)
+        String line = "${accountNumber}, ${customerNumber}, ${totalMin}, ${totalMinsUsed++}, ${totalMinsAvail}, ${price}, John Smith\n"
+        writer << (line)
     }
+
 }
 long endTime = System.currentTimeMillis()
 println "Time taken: " + (endTime - startTime) + " msec"
